@@ -1,0 +1,8 @@
+.selector {
+  padding: 0.5rem;
+  min-width: 20%;
+  outline: none;
+  border: 0px;
+  background-color: #e4e4e4;
+  color: #484848;
+}
