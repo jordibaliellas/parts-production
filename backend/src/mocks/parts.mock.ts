@@ -6,12 +6,47 @@ export const partsMock: Part[] = [
     name: 'tornillo',
     features: [
       {
-        name: 'feature 1',
+        name: 'Tornillo - feature 1',
         controls: [
           {
             name: 'x',
             dev: 0,
-            devOut: 10,
+            devOut: 3,
+          },
+          {
+            name: 'y',
+            dev: 1,
+            devOut: 2,
+          },
+        ],
+      },
+      {
+        name: 'Tornillo - feature 2',
+        controls: [
+          {
+            name: 'x',
+            dev: 1,
+            devOut: 5,
+          },
+        ],
+      },
+      {
+        name: 'Tornillo - feature 3',
+        controls: [
+          {
+            name: 'x',
+            dev: 0,
+            devOut: 0,
+          },
+        ],
+      },
+      {
+        name: 'Tornillo - feature 4',
+        controls: [
+          {
+            name: 'x',
+            dev: 1,
+            devOut: 1,
           },
         ],
       },
@@ -22,7 +57,7 @@ export const partsMock: Part[] = [
     name: 'clavo',
     features: [
       {
-        name: 'feature 1',
+        name: 'Clavo - feature 1',
         controls: [
           {
             name: 'x',
@@ -38,7 +73,7 @@ export const partsMock: Part[] = [
     name: 'arandela',
     features: [
       {
-        name: 'feature 1',
+        name: 'Arandela - feature 1',
         controls: [
           {
             name: 'x',

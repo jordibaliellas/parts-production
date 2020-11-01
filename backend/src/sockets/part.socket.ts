@@ -19,9 +19,14 @@ export const partSocket = (io: SocketIO.Server) => {
   }, 3000);
 
   return (socket: SocketIO.Socket) => {
-    socket.on('part', (part) => {
+    socket.on('part', (partId: string) => {
       socket.leaveAll();
-      socket.join(`part-${part}`);
+      const room = `part-${partId}`;
+
+      const part: Part = getPart(room);
+      if (!part) return;
+
+      socket.join(room).emit('message', JSON.stringify(part));
     });
   };
 };
