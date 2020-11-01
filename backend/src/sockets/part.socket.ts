@@ -1,3 +1,4 @@
+import { generateFeaturesMock } from '../mocks/generate-mock';
 import { getPart } from '../controllers/part.controller';
 import { Part } from '../models/part.model';
 
@@ -14,9 +15,11 @@ export const partSocket = (io: SocketIO.Server) => {
       const part: Part = getPart(room);
       if (!part) return;
 
+      part.features = generateFeaturesMock(part.name);
+
       io.sockets.in(room).emit('message', JSON.stringify(part));
     });
-  }, 3000);
+  }, 10000);
 
   return (socket: SocketIO.Socket) => {
     socket.on('part', (partId: string) => {
@@ -25,6 +28,8 @@ export const partSocket = (io: SocketIO.Server) => {
 
       const part: Part = getPart(room);
       if (!part) return;
+
+      part.features = generateFeaturesMock(part.name);
 
       socket.join(room).emit('message', JSON.stringify(part));
     });
