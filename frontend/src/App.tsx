@@ -1,11 +1,11 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import socketIOClient from "socket.io-client";
-import { Part } from '../../backend/src/models/part.model';
 import { environment } from './environment';
 import './App.css';
 import {Selector, ItemListSelector} from './components/Selector/Selector';
-import Feature from './components/Feature/Feature';
+import {Feature} from './components/Feature/Feature';
 import NoDataPart from './components/No-data-part/No-data-part';
+import { Part } from './models/part.model';
 
 function App() {
   const [partsList, setPartsList] = useState<ItemListSelector[]>([]);
@@ -13,8 +13,9 @@ function App() {
   const [part, setPart] = useState<Part>();
   
   let FeatureBody = <NoDataPart></NoDataPart>;
-  FeatureBody = part ? <div>{part.features.map((feature, i) => 
-    (<Feature key={feature.name + '-' + i} feature={feature}></Feature>)
+
+  FeatureBody = part ? <div style={{display: 'flex', flexWrap: 'wrap'}}>{part.features.map((feature, i) => 
+    (<div key={feature.name + '-' + i} style={{width: '25%'}}><Feature feature={feature}></Feature></div>)
   )}</div> : <NoDataPart></NoDataPart>; 
 
   useEffect(() => {
@@ -56,9 +57,6 @@ function App() {
       <div style={{justifyContent:'center', display: 'flex', padding: '1rem'}}>
         <Selector handleChange={handleChange} optionDefault='Select part' list={partsList}></Selector>
       </div>
-      {/* <TitleFeature title={titleFeature} icon={icon} backgroundColor={backgroundColor}></TitleFeature>
-      <ControlsFeature controls={(part && part.features && part.features[0] && part.features[0].controls) || []}></ControlsFeature>
-      <FooterFeature></FooterFeature> */}
       {FeatureBody}
     </div>
   );

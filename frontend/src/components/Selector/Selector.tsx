@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { makeId } from '../../utils/makeId';
+import { makeId } from '../../utils/make-id';
 import './Selector.css';
 
 export interface ItemListSelector {
