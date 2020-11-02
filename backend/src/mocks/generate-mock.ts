@@ -8,6 +8,7 @@ export const generateFeaturesMock = (partName: string): Feature[] => {
 
   const features: Feature[] = [];
 
+  // Entiendo que una parte siempre tiene el mismo numero de features, aunque lo he hecho dinamico y va variando
   for (let i = 0; i < totalFeatures; i++) {
     const newFeature: Feature = {
       name: `${partName} - feature ${i}`,

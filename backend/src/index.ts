@@ -10,6 +10,7 @@ const server = http.createServer(app);
 
 const io = SocketIo(server);
 
+// TODO: crear un router con todas las rutas de la api
 app.get('/parts', getParts);
 
 io.on('connection', partSocket(io));

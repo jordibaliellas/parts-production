@@ -31,6 +31,7 @@ export const partSocket = (io: SocketIO.Server) => {
 
       part.features = generateFeaturesMock(part.name);
 
+      // Estoy creando una room por cada pieza
       socket.join(room).emit('message', JSON.stringify(part));
     });
   };
